@@ -6,9 +6,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if ($username == "" || $password ==""){
         echo("Error! please fill all the fields");
     }
-    $sql = $db->query("INSERT INTO `user`(`username`, `password`) VALUES ('[$username]','[$password]')");
+    $sql = $db->query("INSERT INTO `user`(`username`, `password`) VALUES ('$username','$password')");
     if(isset($sql)){
-        header("location: ../login.php");
+        header("Location: ../login.php");
+        exit;
     }
 }
 ?>
